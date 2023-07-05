@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option go_package = "github.com/sam-harding/samdb/protos";
+
+package samdb;
+
+service Server {
+    rpc Get(GetRequest) returns (GetResponse) {}
+    rpc Set(SetRequest) returns (SetResponse) {}
+}
+
+message GetRequest {
+    string key = 1;
+}
+
+message GetResponse {
+    bytes value = 1;
+}
+
+message SetRequest {
+    string key = 1;
+    bytes value = 2;
+}
+
+message SetResponse {
+    enum SetStatus {
+        OK = 0;
+        NOT_OK = 1;
+    }
+}
