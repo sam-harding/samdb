@@ -1,0 +1,9 @@
+proto < ../protos/commands.proto
+@host=localhost:2012
+
+###
+
+GRPC /samdb/Get
+{
+    "key": "Test"
+}
