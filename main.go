@@ -31,7 +31,7 @@ func server_addr(server_host string, server_port string) string {
 
 func (s *server) Get(ctx context.Context, in *pb.GetRequest) (*pb.GetResponse, error) {
 	fmt.Println("Get Request: " + in.GetKey())
-	return &pb.GetResponse{Value: []byte("This is the value")}, nil
+	return &pb.GetResponse{Key: in.GetKey(), Value: "This is the value"}, nil
 }
 
 func main() {
